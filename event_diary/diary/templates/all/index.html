@@ -1,0 +1,24 @@
+{% extends "new_event/main_page.html" %}
+
+{% block body %}
+  <ul>
+    {% for all in tasks %}
+      <li>
+        {{ all }}
+      </li>
+    {% empty %}
+      <li>Нет списка</li>
+    {% endfor %}
+
+    {% for new_event in new_events %}
+      <li>
+        <a  href="{% url 'event' new_event.id %}">
+          Событие {{ new_event.id }}: {{ new_event.task }}, дата:{{ new_event.dt_field }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a class="links" href="{% url 'index' %}">Главная страничка</a>
+  <br>
+  <a class="links" href="{% url 'new_event' %}">Создать событие</a>
+{% endblock %}

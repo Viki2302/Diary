@@ -1,0 +1,12 @@
+{% extends "new_event/main_page.html" %}
+
+{% block body %}
+    <h1>Событие {{ event.id }}</h1>
+    <ul>
+        <li>Событие: {{ event.task }}</li>
+        <li> Дата:{{ event.dt_field }}</li>
+    </ul>
+
+    <a href="{% url 'all' %}">Все события</a>
+
+{% endblock %}
